@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Книги</title>
+    <link rel="stylesheet" href="{% static 'books/css/style.css' %}">
+</head>
+<body>
+    <div class="conteiner">
+        <h1 class="books">Книги</h1>
+            <div class="content">
+                {% for book in books%}
+                    <div class="book">
+                        <p>Название: {{ book.title }}</p>
+                        <p>Год: {{ book.pyblish_year}}</p>
+                            {% if book.is_bestseller %}
+                                <p>Эта книга бестселлер!!!</p>
+                            {% endif %}
+                    </div>
+                {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
